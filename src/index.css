@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+  overflow-x: hidden;
+}
+
+/* Selection + focus */
+::selection { background: rgba(0,201,160,0.25); }
+:focus-visible { outline: 2px solid theme('colors.brand.500'); outline-offset: 3px; border-radius: 6px; }
+
+/* Scrollbar (light) */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #E3ECEA; }
+::-webkit-scrollbar-thumb { background: #C2D5D0; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #AAC6BF; }
+
+@layer components {
+  .container-x { @apply w-[92%] max-w-[1180px] mx-auto; }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+  .eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+}
+  /* glass styles defined below (full glassmorphism) */
+  .heading {
+    @apply font-display font-semibold leading-tight;
+  }
+  .gradient-text {
+    background: linear-gradient(100deg, #008573, #00A98F 55%, #0E9CC0);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    background-size: 200% auto;
+  }
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 overflow-hidden whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply text-white;
+    background-image: linear-gradient(120deg, theme('colors.brand.500'), theme('colors.cyan'));
+    box-shadow: 0 16px 34px -14px rgba(0,155,133,0.6);
+  }
+  .btn-ghost { @apply border border-ink/15 text-ink hover:bg-ink/5; }
+  .btn-light { @apply bg-white text-brand-700 border border-line hover:bg-white; }
+  .btn-emergency { @apply text-white; background-image: linear-gradient(120deg, #FF5D5D, #E5484D); }
+}
+
+/* custom cursor removed — using the normal system cursor */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ============================================================
+   GLASSMORPHISM CARDS (light / frosted white)
+   Frosted glass · soft shadow · 22px corners · hover lift + glow
+   ============================================================ */
+
+/* Subtle coloured backdrop so the frosted glass has something to refract */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(680px 540px at 10% 14%, rgba(0,201,160,.16), transparent 60%),
+    radial-gradient(760px 620px at 90% 86%, rgba(14,156,192,.13), transparent 62%),
+    radial-gradient(560px 460px at 62% 48%, rgba(0,155,133,.07), transparent 60%);
+}
+
+.glass, .glass-card, .glass-panel{
+  background: linear-gradient(155deg, rgba(255,255,255,.78), rgba(255,255,255,.55));
+  border: 1px solid rgba(255,255,255,.85);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: 0 22px 48px -26px rgba(16,42,39,.30), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.glass-card, .glass-panel{ border-radius: 22px; }
+
+.glass-card{
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease, border-color .4s ease;
+  will-change: transform;
+}
+/* Hover only on devices that actually hover (keeps mobile clean, no stuck states) */
+@media (hover:hover){
+  .glass-card:hover{
+    transform: translateY(-7px);
+    border-color: rgba(0,155,133,.40);
+    box-shadow:
+      0 36px 64px -30px rgba(16,42,39,.38),
+      0 0 44px -12px rgba(0,201,160,.40),
+      inset 0 1px 0 rgba(255,255,255,.95);
+  }
+}
+
+/* Slightly lighter blur on small screens for smooth scrolling on phones */
+@media (max-width:720px){
+  .glass, .glass-card, .glass-panel{
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+  }
+}
