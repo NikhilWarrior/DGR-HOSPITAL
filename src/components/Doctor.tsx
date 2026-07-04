@@ -11,12 +11,14 @@ export default function Doctor() {
           <motion.div
             whileHover={reduce ? {} : { rotateY: 6, rotateX: -4 }}
             style={{ transformStyle: 'preserve-3d' }}
-            className="relative aspect-[4/5] rounded-3xl overflow-hidden grid place-items-center shadow-card"
+            className="relative aspect-[248/406] rounded-3xl overflow-hidden grid place-items-center shadow-card"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-brand-600 to-brand-700" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(0,230,189,0.4),transparent_60%)]" />
-            <div className="absolute inset-3.5 border border-dashed border-white/25 rounded-2xl animate-[spin_26s_linear_infinite]" />
-            <div className="relative font-display text-5xl text-white text-center leading-tight">Dr.<br />D.H.R</div>
+            <img
+              src="/doctor.png"
+              alt={HOSPITAL.director}
+              className="absolute inset-0 h-full w-full object-contain"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-700/70 via-transparent to-transparent" />
             <div className="absolute left-5 bottom-5 bg-white/95 text-brand-700 px-3 py-2 rounded-xl text-xs font-semibold">Founder &amp; Chief Physician</div>
           </motion.div>
         </Reveal>

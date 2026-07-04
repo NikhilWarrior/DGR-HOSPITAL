@@ -10,11 +10,10 @@ export default function Specialities() {
   const trackRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const mq = window.matchMedia('(min-width: 900px)')
-    if (reduce || !mq.matches) return
-
-    const ctx = gsap.context(() => {
+    // Matches the Tailwind `lg:` breakpoint used below for the row/column layout switch,
+    // so the pinned animation only ever runs when the CSS layout is actually horizontal.
+    const mm = gsap.matchMedia()
+    mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
       const track = trackRef.current
       if (!track) return
       const amount = track.scrollWidth - window.innerWidth + 40
@@ -31,8 +30,8 @@ export default function Specialities() {
           invalidateOnRefresh: true,
         },
       })
-    }, sectionRef)
-    return () => ctx.revert()
+    })
+    return () => mm.revert()
   }, [])
 
   return (
