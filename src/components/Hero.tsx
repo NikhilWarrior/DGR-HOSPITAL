@@ -47,7 +47,7 @@ export default function Hero() {
               Serving Giddalur with trusted multispeciality healthcare, advanced diagnostics, emergency care and patient first treatment.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
-              <Magnetic href={`tel:${HOSPITAL.phoneRaw}`} className="btn btn-primary"><Phone size={16} /> Book Appointment</Magnetic>
+              <Magnetic href="#contact" className="btn btn-primary"><Phone size={16} /> Book Appointment</Magnetic>
               <Magnetic href={`tel:${HOSPITAL.phoneRaw}`} className="btn btn-emergency"><Ambulance size={16} /> Emergency Care</Magnetic>
             </div>
             <div className="flex flex-wrap gap-x-7 gap-y-3 text-sm text-muted">

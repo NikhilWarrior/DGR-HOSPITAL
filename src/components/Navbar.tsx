@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Menu, X, Phone } from 'lucide-react'
-import { HOSPITAL } from '../data/content'
 import { Magnetic } from './ui'
 
 const LINKS = [
@@ -37,7 +36,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Magnetic href={`tel:${HOSPITAL.phoneRaw}`} className="btn btn-primary hidden sm:inline-flex">
+          <Magnetic href="#contact" className="btn btn-primary hidden sm:inline-flex">
             <Phone size={16} /> Book Appointment
           </Magnetic>
           <button className="md:hidden p-2 text-ink" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
@@ -51,7 +50,7 @@ export default function Navbar() {
           {LINKS.map(([label, href]) => (
             <a key={href} href={href} onClick={() => setOpen(false)} className="text-ink/90 text-base">{label}</a>
           ))}
-          <a href={`tel:${HOSPITAL.phoneRaw}`} className="btn btn-primary justify-center"><Phone size={16} /> Book Appointment</a>
+          <a href="#contact" onClick={() => setOpen(false)} className="btn btn-primary justify-center"><Phone size={16} /> Book Appointment</a>
         </div>
       )}
     </header>

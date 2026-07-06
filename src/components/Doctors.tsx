@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { CalendarPlus, Stethoscope } from 'lucide-react'
-import { DOCTORS, HOSPITAL } from '../data/content'
+import { DOCTORS } from '../data/content'
 import { SectionHeading, RevealGroup, itemVariants } from './ui'
 
 function initials(name: string): string {
@@ -42,7 +42,7 @@ export default function Doctors() {
         ))}
       </RevealGroup>
       <div className="mt-8">
-        <a href={`tel:${HOSPITAL.phoneRaw}`} className="btn btn-primary">
+        <a href="#contact" className="btn btn-primary">
           <CalendarPlus size={16} /> Book a consultation
         </a>
       </div>
