@@ -18,11 +18,14 @@ export function Footer() {
             <img src="/DGR_LOGO.png" alt="DGR Multispeciality Hospital" className="h-12 w-auto rounded-lg bg-white px-3 py-1.5 inline-block" />
             <p className="text-muted mt-4 max-w-sm">Healing with heart and caring with kindness, advanced multispeciality care for Giddalur and the Prakasam region.</p>
             <div className="flex gap-3 mt-5">
-              {([[Facebook, HOSPITAL.facebook], [Instagram, HOSPITAL.instagram], [WhatsAppIcon, HOSPITAL.whatsapp], [Phone, `tel:${HOSPITAL.phoneRaw}`]] as [LucideIcon, string][]).map(([Icon, href], i) => (
-                <a key={i} href={href} target="_blank" rel="noopener" className="w-10 h-10 grid place-items-center rounded-lg bg-brand/10 text-brand-600 hover:bg-brand hover:text-white transition-all hover:-translate-y-0.5">
-                  <Icon size={18} />
-                </a>
-              ))}
+              {([[Facebook, HOSPITAL.facebook], [Instagram, HOSPITAL.instagram], [WhatsAppIcon, HOSPITAL.whatsapp], [Phone, `tel:${HOSPITAL.phoneRaw}`]] as [LucideIcon, string][]).map(([Icon, href], i) => {
+                const isExternal = href.startsWith('http')
+                return (
+                  <a key={i} href={href} {...(isExternal ? { target: '_blank', rel: 'noopener' } : {})} className="w-10 h-10 grid place-items-center rounded-lg bg-brand/10 text-brand-600 hover:bg-brand hover:text-white transition-all hover:-translate-y-0.5">
+                    <Icon size={18} />
+                  </a>
+                )
+              })}
             </div>
           </div>
           <div>
