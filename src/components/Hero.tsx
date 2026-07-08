@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Phone, Ambulance, ScanLine, HeartPulse, ShieldCheck } from 'lucide-react'
 import { HOSPITAL } from '../data/content'
 import { Magnetic } from './ui'
-import EcgCanvas from './EcgCanvas'
+import HeroLiveFeed from './HeroLiveFeed'
 
 const NeuralBackground = lazy(() => import('./NeuralBackground'))
 
@@ -37,12 +37,23 @@ export default function Hero() {
             ))}
           </div>
 
+          <span className="block overflow-hidden mb-3">
+            <motion.span
+              className="inline-flex items-center gap-2 bg-brand/10 text-brand-700 border border-brand/20 text-xs sm:text-sm font-bold uppercase tracking-wide px-4 py-1.5 rounded-full"
+              variants={lineUp} custom={0} initial="hidden" animate="show"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-mint" />
+              Complete Care For
+            </motion.span>
+          </span>
+
           <h1 className="heading text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.04] tracking-tight">
-            <span className="block overflow-hidden"><motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">Healing with heart.</motion.span></span>
-            <span className="block overflow-hidden"><motion.span className="block gradient-text italic font-medium animate-flow" variants={lineUp} custom={1} initial="hidden" animate="show">Caring with kindness.</motion.span></span>
+            <span className="block overflow-hidden"><motion.span className="block gradient-text italic font-medium animate-flow" variants={lineUp} custom={1} initial="hidden" animate="show">Heart &amp; Brain:</motion.span></span>
+            <span className="block overflow-hidden"><motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">ECG, Diabetes, &amp;</motion.span></span>
+            <span className="block overflow-hidden"><motion.span className="block text-cyan" variants={lineUp} custom={3} initial="hidden" animate="show">Thyroid Health</motion.span></span>
           </h1>
 
-          <motion.div initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.8 }}>
+          <motion.div initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.8 }}>
             <p className="text-muted text-lg max-w-xl mt-6 mb-8">
               Serving Giddalur with trusted multispeciality healthcare, advanced diagnostics, emergency care and patient first treatment.
             </p>
@@ -58,7 +69,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Live vitals card */}
+        {/* Live activity card */}
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.45, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
@@ -67,11 +78,11 @@ export default function Hero() {
           <div className="absolute inset-0 bg-[radial-gradient(420px_220px_at_80%_0%,rgba(0,201,160,0.18),transparent)]" />
           <div className="flex items-center justify-between relative">
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.1em] text-mint/90">
-              <span className="w-2 h-2 rounded-full bg-mint animate-pulse" /> Live, Stable
+              <span className="w-2 h-2 rounded-full bg-mint animate-pulse" /> Live at DGR
             </span>
-            <span className="font-display text-lg">72 <span className="text-white/60 text-sm">bpm</span></span>
+            <span className="text-xs text-white/50 uppercase tracking-[0.1em]">Updating</span>
           </div>
-          <EcgCanvas />
+          <HeroLiveFeed reduce={reduce} />
           <div className="grid grid-cols-3 gap-2 pt-4 mt-1 border-t border-white/15 relative">
             {[['60+', 'Inpatient Beds'], ['20+', 'ICU Beds'], ['24×7', 'Emergency']].map(([n, l]) => (
               <div key={l}><b className="block font-display text-2xl text-white">{n}</b><span className="text-xs text-white/60">{l}</span></div>
