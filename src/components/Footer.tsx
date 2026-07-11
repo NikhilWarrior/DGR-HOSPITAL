@@ -15,7 +15,7 @@ export function Footer() {
       <div className="container-x">
         <div className="grid md:grid-cols-[1.6fr_1fr_1fr] gap-10 pb-10 border-b border-line">
           <div>
-            <img src="/DGR_LOGO.png" alt="DGR Multispeciality Hospital" className="h-12 w-auto rounded-lg bg-white px-3 py-1.5 inline-block" />
+            <img src="/DGR_LOGO.png" alt="DGR Multispeciality Hospital" className="h-12 w-auto inline-block" />
             <p className="text-muted mt-4 max-w-sm">Healing with heart and caring with kindness, advanced multispeciality care for Giddalur and the Prakasam region.</p>
             <div className="flex gap-3 mt-5">
               {([[Facebook, HOSPITAL.facebook], [Instagram, HOSPITAL.instagram], [WhatsAppIcon, HOSPITAL.whatsapp], [Phone, `tel:${HOSPITAL.phoneRaw}`]] as [LucideIcon, string][]).map(([Icon, href], i) => {
@@ -33,7 +33,7 @@ export function Footer() {
             <ul className="space-y-2 text-muted text-sm">
               <li><a href="#specialities" className="hover:text-brand-400">Specialities</a></li>
               <li><a href="#facilities" className="hover:text-brand-400">Facilities</a></li>
-              <li><a href="#aarogyasri" className="hover:text-brand-400">Aarogyasri</a></li>
+              <li><a href="#ntr-vaidyaseva" className="hover:text-brand-400">NTR Vaidyaseva</a></li>
               <li><a href="#emergency" className="hover:text-brand-400">Emergency</a></li>
             </ul>
           </div>

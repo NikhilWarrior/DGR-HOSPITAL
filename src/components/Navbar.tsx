@@ -5,7 +5,7 @@ import { Magnetic } from './ui'
 const LINKS = [
   ['Specialities', '#specialities'],
   ['Facilities', '#facilities'],
-  ['Aarogyasri', '#aarogyasri'],
+  ['NTR Vaidyaseva', '#ntr-vaidyaseva'],
   ['Emergency', '#emergency'],
   ['Contact', '#contact'],
 ]
@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-bg/85 backdrop-blur-xl border-b border-line' : 'bg-transparent'}`}>
       <nav className="container-x flex items-center justify-between py-3" aria-label="Primary">
         <a href="#top" className="flex items-center gap-2">
-          <img src="/DGR_LOGO.png" alt="DGR Multispeciality Hospital" className="h-11 w-auto rounded-md bg-white/95 px-2 py-1" />
+          <img src="/DGR_LOGO.png" alt="DGR Multispeciality Hospital" className="h-11 w-auto" />
         </a>
 
         <div className="hidden md:flex items-center gap-7">

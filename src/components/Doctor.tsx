@@ -30,9 +30,10 @@ export default function Doctor() {
             Good care is simple, listen to the patient, treat them like family, and use the best equipment you can to get them well.
           </p>
           <p className="text-muted my-6">
-            DGR Multispeciality Hospital was built on that belief. As the town’s first hospital with a high speed CT scanner,
-            fully equipped ICU and modern operation theatres, it brings hospital-grade care within reach of every family in the
-            Giddalur region, backed by a friendly, hands on team.
+            DGR Multispeciality Hospital was built on that belief. As Giddalur’s first multispeciality hospital, with the town’s
+            first physician and first orthopaedician and a high speed CT scanner, fully equipped ICU and modern operation theatres,
+            it brings 12+ years of hospital-grade care within reach of every family in the Giddalur region, backed by a friendly,
+            hands on team.
           </p>
           <p className="font-semibold">{HOSPITAL.director}<span className="block font-normal text-muted text-sm">Founder &amp; Chief Medical Director, {HOSPITAL.shortName}</span></p>
         </Reveal>

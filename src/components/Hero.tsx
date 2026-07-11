@@ -50,7 +50,7 @@ export default function Hero() {
           <h1 className="heading text-4xl sm:text-5xl lg:text-[3.6rem] leading-[1.04] tracking-tight">
             <span className="block overflow-hidden"><motion.span className="block gradient-text italic font-medium animate-flow" variants={lineUp} custom={1} initial="hidden" animate="show">Heart &amp; Brain:</motion.span></span>
             <span className="block overflow-hidden"><motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">ECG, Diabetes, &amp;</motion.span></span>
-            <span className="block overflow-hidden"><motion.span className="block text-cyan" variants={lineUp} custom={3} initial="hidden" animate="show">Thyroid Health</motion.span></span>
+            <span className="block overflow-hidden pb-2"><motion.span className="block text-cyan" variants={lineUp} custom={3} initial="hidden" animate="show">Thyroid Health</motion.span></span>
           </h1>
 
           <motion.div initial={reduce ? false : { opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.8 }}>
@@ -64,7 +64,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-x-7 gap-y-3 text-sm text-muted">
               <span className="inline-flex items-center gap-2"><ScanLine size={16} className="text-cyan" /> High Speed CT Scan</span>
               <span className="inline-flex items-center gap-2"><HeartPulse size={16} className="text-cyan" /> ICU & Critical Care</span>
-              <span className="inline-flex items-center gap-2"><ShieldCheck size={16} className="text-cyan" /> Aarogyasri Empanelled</span>
+              <span className="inline-flex items-center gap-2"><ShieldCheck size={16} className="text-cyan" /> NTR Vaidyaseva &amp; ECHS Empanelled</span>
             </div>
           </motion.div>
         </div>

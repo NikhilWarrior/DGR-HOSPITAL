@@ -9,7 +9,8 @@ import Specialities from './components/Specialities'
 import Doctor from './components/Doctor'
 import Doctors from './components/Doctors'
 import Facilities from './components/Facilities'
-import Aarogyasri from './components/Aarogyasri'
+import Gallery from './components/Gallery'
+import NtrVaidyaseva from './components/NtrVaidyaseva'
 import Emergency from './components/Emergency'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
@@ -32,7 +33,8 @@ export default function App() {
         <Doctor />
         <Doctors />
         <Facilities />
-        <Aarogyasri />
+        <Gallery />
+        <NtrVaidyaseva />
         <Emergency />
         <Testimonials />
         <Contact />
