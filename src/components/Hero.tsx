@@ -1,9 +1,9 @@
 import { Suspense, lazy } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { Phone, Ambulance, ScanLine, HeartPulse, ShieldCheck } from 'lucide-react'
+import { Phone, Ambulance, ScanLine, HeartPulse, ShieldCheck, Heart, Stethoscope, Activity, type LucideIcon } from 'lucide-react'
 import { HOSPITAL } from '../data/content'
 import { Magnetic } from './ui'
-import HeroLiveFeed from './HeroLiveFeed'
+import EcgCanvas from './EcgCanvas'
 
 const NeuralBackground = lazy(() => import('./NeuralBackground'))
 
@@ -11,6 +11,12 @@ const lineUp = {
   hidden: { y: '110%' },
   show: (i: number) => ({ y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 + i * 0.12 } }),
 }
+
+const VITAL_CHIPS: { icon: LucideIcon; label: string }[] = [
+  { icon: Heart, label: 'Cardiac Care' },
+  { icon: Stethoscope, label: 'Clinical Monitoring' },
+  { icon: Activity, label: 'Vitals Tracked' },
+]
 
 export default function Hero() {
   const reduce = useReducedMotion()
@@ -69,7 +75,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Live activity card */}
+        {/* Vitals monitor card */}
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.45, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
@@ -78,12 +84,31 @@ export default function Hero() {
           <div className="absolute inset-0 bg-[radial-gradient(420px_220px_at_80%_0%,rgba(0,201,160,0.18),transparent)]" />
           <div className="flex items-center justify-between relative">
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.1em] text-mint/90">
-              <span className="w-2 h-2 rounded-full bg-mint animate-pulse" /> Live at DGR
+              <span className="w-2 h-2 rounded-full bg-mint animate-pulse" /> Live, Stable
             </span>
-            <span className="text-xs text-white/50 uppercase tracking-[0.1em]">Updating</span>
+            <span className="font-display text-lg flex items-center gap-1.5">
+              <motion.span
+                animate={reduce ? {} : { scale: [1, 1.18, 1] }}
+                transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <Heart size={16} className="text-mint fill-mint" />
+              </motion.span>
+              72 <span className="text-white/60 text-sm">bpm</span>
+            </span>
           </div>
-          <HeroLiveFeed reduce={reduce} />
-          <div className="grid grid-cols-3 gap-2 pt-4 mt-1 border-t border-white/15 relative">
+
+          <EcgCanvas />
+
+          <div className="flex flex-wrap gap-2 relative">
+            {VITAL_CHIPS.map(({ icon: Icon, label }) => (
+              <span key={label} className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white/85">
+                <Icon size={13} className="text-mint" />
+                {label}
+              </span>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 pt-4 mt-4 border-t border-white/15 relative">
             {[['60+', 'Inpatient Beds'], ['20+', 'ICU Beds'], ['24×7', 'Emergency']].map(([n, l]) => (
               <div key={l}><b className="block font-display text-2xl text-white">{n}</b><span className="text-xs text-white/60">{l}</span></div>
             ))}
