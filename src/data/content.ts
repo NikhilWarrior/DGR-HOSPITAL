@@ -20,9 +20,9 @@ export const HOSPITAL = {
   shortName: 'DGR Hospitals',
   location: 'Giddalur',
   tagline: 'Healing with heart. Caring with kindness.',
-  phone: '+91 91006 33355',
-  phoneRaw: '+919100633355',
-  whatsapp: 'https://wa.me/919100633355',
+  phone: '+91 91778 20261',
+  phoneRaw: '+919177820261',
+  whatsapp: 'https://wa.me/919177820261',
   maps: 'https://www.google.com/maps/search/DGR+Hospital+Giddalur',
   facebook: 'https://www.facebook.com/p/DGR-Hospitals-Giddalur-100063701934166/',
   instagram: 'https://www.instagram.com/dgr.hospitals/',
@@ -38,6 +38,7 @@ export const DOCTORS: Doctor[] = [
   { name: 'Dr. D. Harinath Reddy', specialty: 'General Medicine', qualification: 'MD General Medicine, Physician & Diabetologist', note: "Giddalur's first physician, 12+ years experience" },
   { name: 'Dr. K. N. Sandeep', specialty: 'Orthopedics', qualification: 'MS Orthopedics', note: "Giddalur's first orthopaedician" },
   { name: 'Dr. B. V. Kiran Kumar', specialty: 'General & Laparoscopic Surgery', qualification: 'MS General and Laparoscopic Surgery' },
+  { name: 'Dr. Batthula Gnana Prasanna', specialty: 'Obstetrics & Gynaecology', qualification: 'MBBS, MS OBG (Gynaecologist)', note: '1500+ procedures' },
 ]
 export const STATS: Stat[] = [
   { value: 60, suffix: '+', label: 'Inpatient Beds' },
@@ -60,6 +61,7 @@ export const SPECIALITIES: Speciality[] = [
   { icon: Stethoscope, name: 'General Medicine', desc: 'Fever, infections, diabetes, blood pressure and everyday illness, with accurate diagnosis and treatment.', stat: '15k+', statLabel: 'Consults / year' },
   { icon: Bone, name: 'Orthopedics', desc: 'Fracture care, bone and joint treatment, trauma management and rehabilitation.', stat: '1.2k+', statLabel: 'Procedures' },
   { icon: Syringe, name: 'General & Laparoscopic Surgery', desc: 'Planned and emergency surgery, including minimally invasive laparoscopic procedures.', stat: '900+', statLabel: 'Surgeries' },
+  { icon: Baby, name: 'Obstetrics & Gynaecology', desc: 'Pregnancy care, safe delivery and gynaecological treatment from an experienced OBG specialist.', stat: '1.5k+', statLabel: 'Procedures' },
   { icon: HeartPulse, name: 'Critical Care', desc: 'ICU, casualty and ambulance support available round the clock with continuous monitoring.', stat: '20+', statLabel: 'ICU beds' },
   { icon: Scan, name: 'Diagnostics', desc: 'High speed CT scan, 2D Echo, USG, digital X ray, ECG and laboratory for fast, accurate results on site.', stat: '1st', statLabel: 'High speed CT in Giddalur' },
 ]
